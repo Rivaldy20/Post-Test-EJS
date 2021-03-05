@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("partials/head.ejs") %>
+
+    <body>
+        <%- include("partials/navbar.ejs") %>
+
+            <div class="container mt-4">
+                <h1>News</h1>
+                <div class="row">
+                    <% news.forEach(data => {  %>
+                        <div class="col-4">
+                            <div class="card" style="min-height: 500px; margin-bottom: 15px;">
+                                <img src="<%= data.image.small %>" class="card-image-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <%= data.title %>
+                                    </h5>
+                                    <p class="card-text">
+                                        <%= data.contentSnippet %>
+                                    </p>
+                                    <a href="<%= data.link %>" class="btn btn-primary" target="_blank">Selengkapnya</a>
+                                </div>
+                            </div>
+                        </div>
+                        <% }) %>
+                </div>
+            </div>
+    </body>
+
+</html>

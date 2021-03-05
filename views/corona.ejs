@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/head.ejs") %>
+
+    <body>
+        <%- include("partials/navbar.ejs") %>
+            <div class="container mt-4">
+                <h1>Corona</h1>
+                <ol>
+                    <% corona.forEach(data => { %>
+                        <li <% if (data.attributes.Kasus_Meni>= 3000) { %> style="color: red"
+                            <% } else if (data.attributes.Kasus_Meni >= 2000) {%>
+                                style="color: orange"
+                                <% } else { %>
+                                    style="color: green"
+                                    <% } %>
+                                        >
+                                        <%= data.attributes.Provinsi %>:
+                                            <%= data.attributes.Kasus_Meni %>
+                        </li>
+                        <% }) %>
+                </ol>
+            </div>
+    </body>
+
+</html>
